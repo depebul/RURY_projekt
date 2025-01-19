@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{RURY-rownanie-transportu-ciepla}
+\author{Dawid Żak}
+\date{January 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Obliczenia z równania transportu ciepła}
+\subsection{Treść zadania}
+\begin{equation}
+    -k(x)u''(x)=0 
+\end{equation}
+\begin{equation}
+    u(2) = 3 
+\end{equation}
+\begin{equation}
+    u'(0)+u(0)=20
+    \label{brzeg}
+\end{equation}
+   % Requires: \usepackage{amsmath}
+\begin{equation}
+    k(x) = 
+    \begin{cases} 
+      1 & \text{dla } x \in [0, 1] \\ 
+      2 & \text{dla } x \in (1, 2)
+    \end{cases}
+\label{eq:piecewise}
+\end{equation}
+\text{Gdzie u to poszukiwana funkcja}
+\begin{equation*}
+    [0,2]\ni x \rightarrow u(x) \in \mathbb{R}
+\end{equation*}
+\subsection{Rozwiązanie}
+\begin{equation*}
+    \int_0^2-k u''(x) v(x) \, dx = 0
+\end{equation*}
+\text{całka przez części, niby dobrze?}
+\begin{equation*}
+    \int_0^2ku'v'\,dx-k(2)u'(2)v(2)+k(0)u'(0)v(0)=0
+\end{equation*}
+\text{wstawienie wartości w k(x) z (\ref{eq:piecewise})}
+\begin{equation}
+    \int_0^2ku'v'\,dx - 2u'(2)v(2)+u'(0)v(0)=0
+    \label{caleczka}
+\end{equation}
+\text{przekształcenie z (\ref{brzeg})}
+\begin{equation*}
+    u'(0)=20-u(0)
+\end{equation*}
+\text{wstawiamy do (\ref{caleczka})}
+\begin{equation*}
+    \int_0^2ku'v'\,dx - 2u'(2)v(2) + (20-u(0))v(0)=0
+\end{equation*}
+\begin{equation}
+    \int_0^2ku'v'dx - 2u'(2)v(2) - u(0)v(0)=-20v(0)
+    \label{eq:cal}
+\end{equation}
+\\
+\text{teraz wyznaczenie funkcji pomocniczej}
+\begin{equation*}
+    u=w+\overline{u}
+\end{equation*}
+\begin{equation*}
+    \overline{u}=\frac{3}{2}x
+\end{equation*}
+\begin{equation}
+    u = w + \frac{3}{2}x
+\end{equation}
+\begin{equation}
+    u' = w' + \frac{3}{2}
+\end{equation}
+\text{wstawiamy do równania (\ref{eq:cal})}
+\begin{equation*}
+    \int_0^2k(w'+\frac{3}{2})v'\,dx - 2(w'(2)+\frac{3}{2})v(2) - (w(0)+\frac{3}{2}*0)v(0)=-20v(0)
+\end{equation*}
+\begin{equation*}
+    \int_0^2kw'v'\,dx + \frac{3}{2}\int_0^2kv'\,dx - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
+\end{equation*}
+\begin{equation*}
+    \int_0^2kw'v'\,dx + \frac{3}{2}v|_0^1 + 3v|_1^2 - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
+\end{equation*}
+\begin{equation*}
+    \int_0^2kw'v'\,dx - \frac{3}{2}v(0) - \frac{3}{2}v(1) + 3v(2) - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
+\end{equation*}
+\begin{equation*}
+    \int_0^2kw'v'\,dx - 2w'(2)v(2) - w(0)v(0)=-\frac{37}{2}v(0) + \frac{3}{2}v(1)
+\end{equation*}
+\begin{equation}
+    B(w,v) = \int_0^2kw'v'\,dx - 2w'(2)v(2) - w(0)v(0)
+\end{equation}
+\begin{equation}
+    L(v) = -\frac{37}{2}v(0) + \frac{3}{2}v(1)
+\end{equation}
+\end{document}
