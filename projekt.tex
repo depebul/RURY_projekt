@@ -17,23 +17,23 @@
 \section{Obliczenia z równania transportu ciepła}
 \subsection{Treść zadania}
 \begin{equation}
-    -k(x)u''(x)=0 
+    -k(x)u''(x)=0
 \end{equation}
 \begin{equation}
-    u(2) = 3 
+    u(2) = 3
 \end{equation}
 \begin{equation}
     u'(0)+u(0)=20
     \label{brzeg}
 \end{equation}
-   % Requires: \usepackage{amsmath}
+% Requires: \usepackage{amsmath}
 \begin{equation}
-    k(x) = 
-    \begin{cases} 
-      1 & \text{dla } x \in [0, 1] \\ 
-      2 & \text{dla } x \in (1, 2)
+    k(x) =
+    \begin{cases}
+        1 & \text{dla } x \in [0, 1] \\
+        2 & \text{dla } x \in (1, 2)
     \end{cases}
-\label{eq:piecewise}
+    \label{eq:piecewise}
 \end{equation}
 \text{Gdzie u to poszukiwana funkcja}
 \begin{equation*}
@@ -89,7 +89,7 @@
     \int_0^2kw'v'\,dx + \frac{3}{2}v|_0^1 + 3v|_1^2 - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
 \end{equation*}
 \begin{equation*}
-    \int_0^2kw'v'\,dx - \frac{3}{2}v(0) - \frac{3}{2}v(1) + 3v(2) - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
+    \int_0^2kw'v'\,dx + \frac{3}{2}v(1) - \frac{3}{2}v(0) + 3v(2) - 3v(1) - 2w'(2)v(2)-3v(2) - w(0)v(0)=-20v(0)
 \end{equation*}
 \begin{equation*}
     \int_0^2kw'v'\,dx - 2w'(2)v(2) - w(0)v(0)=-\frac{37}{2}v(0) + \frac{3}{2}v(1)
